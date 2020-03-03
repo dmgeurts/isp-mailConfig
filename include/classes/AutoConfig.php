@@ -30,7 +30,7 @@ class AutoConfig{
             //* Login to the remote server
             if($session_id = $client->login(SOAP_USER,SOAP_PASS)){
                 $mail_user = $client->mail_user_get($session_id, array('email' => $this->email));
-                if(count($mail_user) == 1){
+                if(is_array($mail_user) && if(count($mail_user) == 1){
                     $this->host = $client->server_get($session_id, $mail_user[0]['server_id'], 'server');
                     $this->user = $mail_user[0];
                 }
